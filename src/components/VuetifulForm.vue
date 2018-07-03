@@ -35,7 +35,9 @@
 
                 this.$emit('startSubmit');
 
-                this.form.submit().then(response => this.$emit('completeSubmit', response));
+                this.form.submit()
+                    .then(response => this.$emit('success', response))
+                    .catch(error => this.$emit('error', error));
 
             },
         }
