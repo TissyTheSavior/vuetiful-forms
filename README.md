@@ -46,11 +46,11 @@ Then we have 3 events being emitted from our form component.
 
 > When the form is submitted it will disable the form from being submitted again then call a .validate() method on on the form. If it fails validation it will be enabled again. then it will call a .submit() method on the form. 
 
-#Examples
+# Examples
 
 Here are just a few examples for clarification on how I use this package.
 
-###Example Login Form
+### Example Login Form
 
 Here is an example to get you started in the simplest form.
 
@@ -120,7 +120,7 @@ Login.vue
 </script>
 ```
 
-###Example Contact Form
+### Example Contact Form
 
 Also the form can have nested objects and validate them. 
 
