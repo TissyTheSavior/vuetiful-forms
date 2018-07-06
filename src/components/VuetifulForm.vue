@@ -4,6 +4,7 @@
             <slot name="form-title"></slot>
         </h3>
         <slot></slot>
+        <indicator></indicator>
         <button type="submit" :disabled="disableForm">
             <slot name="button-text">Submit</slot>
         </button>
@@ -11,11 +12,17 @@
 </template>
 
 <script>
+    import Indicator from './Indicator';
+
     export default {
-        name : "vuetiful-form",
-        props: {
-            form: {}
+        name      : "vuetiful-form",
+        props     : {
+            form: {},
+            indicator: {
+                default: true,
+            },
         },
+        components: { Indicator },
 
         data() {
             return {
