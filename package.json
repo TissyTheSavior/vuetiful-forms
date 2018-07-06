@@ -1,6 +1,6 @@
 {
   "name": "vuetiful-forms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A form building framework for Vue.js",
   "author": "Christian Pavilonis <christian@statebuilt.com>",
   "main": "dist/lib/my-project.min.js",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "vue": "^2.3.3",
-    "tissy-form-validator": "^1.0.15 "
+    "tissy-form-validator": "^1.0.15"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
