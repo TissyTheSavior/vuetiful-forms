@@ -56,7 +56,7 @@ Here is an example to get you started in the simplest form.
 
 LoginForm.js
 ```js
-import { Form } from 'tissy-form-validator';
+import { Form } from 'form-guard';
 import axios from 'axios';
 
 export default class LoginForm extends  Form{
