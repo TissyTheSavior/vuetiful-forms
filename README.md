@@ -12,7 +12,7 @@ First import VuetifulForm and optionally The Error Component
     ...
 ```
 Next set up your data properties and include a Form object
-> form objects should extend Form from [tissy-form-validator](https://github.com/TissyTheSavior/tissy-form-validator).
+> form objects should extend Form from [form guard](https://github.com/TissyTheSavior/form-guard).
 ```vue
  data() {
     return {
@@ -122,7 +122,7 @@ Login.vue
 
 ### Example Contact Form
 
-Also the form can have nested objects and validate them. 
+Also the form can have nested objects and validate them.
 
 LoginForm.js
 ```js
