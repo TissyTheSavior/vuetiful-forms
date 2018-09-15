@@ -12,7 +12,7 @@ First import VuetifulForm and optionally The Error Component
     ...
 ```
 Next set up your data properties and include a Form object
-> form objects should extend Form from [form guard](https://github.com/TissyTheSavior/form-guard).
+> form objects should extend Form from [form guard](https://github.com/ChristianPav/form-guard).
 ```vue
  data() {
     return {
@@ -25,7 +25,6 @@ Next Let's make our template
 ```vue
 <template>
     <vuetiful-form :form="form" @startSubmit="onStartSubmit" @success="onSuccess" @error="onError">
-        <template slot="form-title">Title of Form</template>
         <label for="input-name">Name:</label>
         <error :error="form.validator.getError('property')"></error>
         <input id="input-name" type="text" v-model="form.property">
@@ -126,7 +125,7 @@ Also the form can have nested objects and validate them.
 
 LoginForm.js
 ```js
-import { Form } from 'tissy-form-validator';
+import { Form } from 'form-guard';
 import axios from 'axios';
 
 export default class ContactForm extends  Form{

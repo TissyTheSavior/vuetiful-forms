@@ -1,10 +1,7 @@
 <template>
-    <form @submit.prevent="handleSubmit">
-        <h3>
-            <slot name="form-title"></slot>
-        </h3>
+    <form class="vuetiful-form" @submit.prevent="handleSubmit">
         <slot></slot>
-        <button type="submit" :disabled="disableForm">
+        <button class="vuetiful-button" type="submit" :disabled="disableForm">
             <slot name="button-text">Submit</slot>
         </button>
     </form>
@@ -15,9 +12,6 @@
         name      : "vuetiful-form",
         props     : {
             form: {},
-            indicator: {
-                default: true,
-            },
         },
 
         data() {
@@ -46,7 +40,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
