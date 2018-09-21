@@ -5,10 +5,12 @@
 
         <div v-for="(item, index) in items">
             <slot :item="item" :index="index"/>
-            <button @click.prevent="items.splice(index, 1)">{{ deleteItemText }}</button>
+            <button v-if="buttonOptions.showDeleteButton" class="vuetiful-forms-delete-item-button" @click.prevent="items.splice(index, 1)">{{ deleteItemText }}</button>
         </div>
 
-        <button @click.prevent="$emit('add-item')">{{ addItemText }}</button>
+        <button v-if="buttonOptions.showDeleteButton" class="vuetiful-forms-add-item-button" @click.prevent="$emit('add-item')">
+            <slot name="add-button">Add</slot>
+        </button>
 
     </div>
 </template>
@@ -17,12 +19,16 @@
     export default {
         name : "repeating-form-group",
         props: {
-            items         : {},
-            addItemText   : {
-                default: 'Add'
-            },
-            deleteItemText: {
-                default: 'Delete'
+            items        : {},
+            buttonOptions: {
+                type   : Object,
+                default: () => {
+                    return {
+                        deleteItemText  : 'Delete',
+                        showDeleteButton: true,
+                        showAddButton   : true,
+                    }
+                }
             }
         }
     }
