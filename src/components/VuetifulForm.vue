@@ -1,5 +1,5 @@
 <template>
-    <form class="vuetiful-form" @submit.prevent="handleSubmit">
+    <form class="vuetiful-form" @submit.prevent="onSubmit">
         <slot></slot>
         <button class="vuetiful-button" type="submit" :disabled="disableForm">
             <slot name="button-text">Submit</slot>
@@ -9,8 +9,8 @@
 
 <script>
     export default {
-        name      : "vuetiful-form",
-        props     : {
+        name : "vuetiful-form",
+        props: {
             form: {},
         },
 
@@ -21,7 +21,7 @@
         },
 
         methods: {
-            handleSubmit() {
+            onSubmit() {
                 this.disableForm = true;
 
                 this.form.validate();
@@ -30,13 +30,17 @@
                     return this.disableForm = false;
                 }
 
+                this.submitForm()
+            },
+
+            submitForm() {
                 this.$emit('startSubmit');
 
-                this.form.submit()
+                return this.form.submit()
                     .then(response => this.$emit('success', response))
                     .catch(error => this.$emit('error', error));
+            }
 
-            },
         }
     }
 </script>
