@@ -8,7 +8,7 @@
             <button v-if="buttonOptions.showDeleteButton" class="vuetiful-forms-delete-item-button" @click.prevent="items.splice(index, 1)">{{ deleteItemText }}</button>
         </div>
 
-        <button v-if="buttonOptions.showDeleteButton" class="vuetiful-forms-add-item-button" @click.prevent="$emit('add-item')">
+        <button v-if="buttonOptions.showAddButton" class="vuetiful-forms-add-item-button" @click.prevent="$emit('add-item')">
             <slot name="add-button">Add</slot>
         </button>
 
