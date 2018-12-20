@@ -30,15 +30,28 @@
                     return this.disableForm = false;
                 }
 
-                this.submitForm()
+                this.submitForm();
             },
 
             submitForm() {
                 this.$emit('startSubmit');
 
-                return this.form.submit()
-                    .then(response => this.$emit('success', response))
+                let result = this.form.submit();
+
+                if(typeof result.then === 'function') {
+                    this.submitAsync(result);
+                }
+                else {
+                    this.$emit('success', result);
+                    this.disableForm = false;
+                }
+            },
+
+            async submitAsync(result) {
+                await result.then(response => this.$emit('success', response))
                     .catch(error => this.$emit('error', error));
+
+                this.disableForm = false;
             }
 
         }

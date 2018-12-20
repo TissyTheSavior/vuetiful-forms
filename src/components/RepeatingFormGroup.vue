@@ -3,12 +3,20 @@
 
         <slot name="label"/>
 
-        <div v-for="(item, index) in items">
+        <div v-for="(item, index) in items"
+             class="vuetiful-forms-repeater-item">
             <slot :item="item" :index="index"/>
-            <button v-if="buttonOptions.showDeleteButton" class="vuetiful-forms-delete-item-button" @click.prevent="items.splice(index, 1)">{{ deleteItemText }}</button>
+            <button v-if="buttonOptions.showDeleteButton"
+                    @click.prevent="items.splice(index, 1)"
+                    class="vuetiful-forms-delete-item-button"
+                    type="button">{{ deleteItemText }}
+            </button>
         </div>
 
-        <button v-if="buttonOptions.showAddButton" class="vuetiful-forms-add-item-button" @click.prevent="$emit('add-item')">
+        <button v-if="buttonOptions.showAddButton"
+                @click.prevent="$emit('add-item')"
+                class="vuetiful-forms-add-item-button"
+                type="button">
             <slot name="add-button">Add</slot>
         </button>
 

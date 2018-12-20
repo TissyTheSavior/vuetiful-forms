@@ -1,5 +1,5 @@
 import expect    from 'expect';
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Error     from '../src/components/Error';
 
 describe('Error Component Test', () => {
@@ -11,8 +11,10 @@ describe('Error Component Test', () => {
 
         component.setProps({ error: "Error!" });
 
-        expect(component.find('.error').exists()).toBeTruthy();
-        expect(component.find('.error').text()).toBe("Error!");
+        let errorElement = component.find('.error');
+
+        expect(errorElement.exists()).toBeTruthy();
+        expect(errorElement.text()).toBe("Error!");
 
     });
 
