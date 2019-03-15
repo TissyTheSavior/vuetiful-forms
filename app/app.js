@@ -1,9 +1,6 @@
 import Vue                from 'vue'
 import { Form }           from 'form-guard'
-import VuetifulForm       from "../src/components/VuetifulForm";
-import RepeatingFormGroup from "../src/components/RepeatingFormGroup";
-import VuetifulInput      from '../src/components/VuetifulInput';
-import Error              from "../src/components/Error";
+import * as VuetifulForms from '../src/vuetiful-forms';
 
 class MyForm extends Form {
 
@@ -18,6 +15,7 @@ class MyForm extends Form {
         return {
             name : ['required'],
             email: ['email', 'required'],
+            num: ['min:1', 'max:10'],
         }
     }
 
@@ -36,7 +34,7 @@ let app = new Vue({
             <vuetiful-input v-model="form.email" type="email" :error="form.validator.getError('email')" placeholder="email@example.com">
                 Email:
             </vuetiful-input>
-            <vuetiful-input v-model="form.num" type="number">
+            <vuetiful-input v-model="form.num" :error="form.validator.getError('num')"  type="number">
                 Number:
             </vuetiful-input>
         </vuetiful-form>
@@ -45,5 +43,5 @@ let app = new Vue({
         form: new MyForm(),
     },
 
-    components: { VuetifulForm, Error, RepeatingFormGroup, VuetifulInput, }
+    components: { ...VuetifulForms }
 });
