@@ -9,6 +9,8 @@ class MyForm extends Form {
         this.name = 'default name';
         this.email = '';
         this.num = 5;
+        this.bool = false;
+        this.select = '';
     }
 
     rules() {
@@ -16,6 +18,8 @@ class MyForm extends Form {
             name : ['required'],
             email: ['email', 'required'],
             num: ['min:1', 'max:10'],
+            bool: ['required'],
+            select: ['required'],
         }
     }
 
@@ -27,20 +31,27 @@ class MyForm extends Form {
 let app = new Vue({
     el        : '#app',
     template: `
-        <vuetiful-form :form="form">
-            <vuetiful-input v-model="form.name" :error="form.validator.getError('name')">
+        <v-form :form="form">
+            <v-input v-model="form.name" :error="form.validator.getError('name')">
                 Name:
-            </vuetiful-input>
-            <vuetiful-input v-model="form.email" type="email" :error="form.validator.getError('email')" placeholder="email@example.com">
+            </v-input>
+            <v-input v-model="form.email" type="email" :error="form.validator.getError('email')" placeholder="email@example.com">
                 Email:
-            </vuetiful-input>
-            <vuetiful-input v-model="form.num" :error="form.validator.getError('num')"  type="number">
+            </v-input>
+            <v-input v-model="form.num" :error="form.validator.getError('num')"  type="number">
                 Number:
-            </vuetiful-input>
-        </vuetiful-form>
+            </v-input>
+            <v-checkbox v-model="form.bool" :error="form.validator.getError('bool')">
+                Check this box!
+            </v-checkbox>
+            <v-select v-model="form.select" :options="selectOptions" :error="form.validator.getError('select')">
+                Select
+            </v-select>
+        </v-form>
     `,
     data: {
         form: new MyForm(),
+        selectOptions: ['one', 'two', 'three'],
     },
 
     components: { ...VuetifulForms }

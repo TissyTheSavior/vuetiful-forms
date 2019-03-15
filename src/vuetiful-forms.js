@@ -1,8 +1,10 @@
-import VuetifulForm       from './components/VuetifulForm';
+import VForm       from './components/VuetifulForm';
 import RepeatingFormGroup from './components/RepeatingFormGroup';
 import Error              from './components/Error';
-import VuetifulInput from './components/VuetifulInput';
+import VInput      from './components/VuetifulInput';
+import VCheckbox   from './components/VuetifulCheckbox';
+import VSelect     from './components/VuetifulSelect';
 
 export {
-    VuetifulForm, RepeatingFormGroup, Error, VuetifulInput,
+    VForm, RepeatingFormGroup, Error, VInput, VCheckbox, VSelect,
 }
