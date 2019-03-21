@@ -1,6 +1,6 @@
 {
   "name": "vuetiful-forms",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "A form building framework for Vue.js",
   "author": "Christian Pavilonis <christian@statebuilt.com>",
   "main": "dist/lib/vuetiful-forms.min.js",
