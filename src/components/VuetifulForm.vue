@@ -22,6 +22,7 @@
 
         methods: {
             onSubmit() {
+                this.$emit('beforeSubmit');
                 this.disableForm = true;
 
                 this.form.validate();
